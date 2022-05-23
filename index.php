@@ -22,8 +22,8 @@
 }
 
 body {
-    width: 100vh;
-    height: 100vh;
+    width: 100vw;
+    height: 100vw;
     /* background-image: linear-gradient(to right, #f5df4d, #939597); */
     font-family: 'Roboto Mono', monospace;
     /* font-family: 'Roboto Slab', serif; */
@@ -32,10 +32,10 @@ body {
 }
 
 .container {
-    background-color: rgba(244, 245, 240, .3);
+    background-color: rgba(244, 245, 240, .4);
     border-radius: 20px;
     display: flex;
-    margin: 40px auto;
+    margin: 80px auto;
     width: 950px;
     height: 630px;
 }
@@ -58,7 +58,7 @@ margin-right:5px;
     align-content: space-between;
     flex-wrap: wrap;
     /* margin: auto; */
-    margin-top: 10px;
+    margin-top: 0;
     text-align: center;
 }
 
@@ -66,11 +66,11 @@ margin-right:5px;
     /* border: 1px solid #999; */
     display: inline-block;
     width: 80px;
-    height: 85px;
+    height: 80px;
     box-sizing: border-box;
     /* margin-left: -1px; */
     margin-top: -2px;
-    padding: 12px;
+    padding: 20px;
     margin-top: 10px;
 }
 
@@ -114,7 +114,8 @@ margin-right:5px;
     justify-content: space-around;
     align-items: center;
     width: 560px;
-    height: 60px;
+    height: 50px;
+    padding-top: 8px;
 }
 
 span>a {
@@ -163,6 +164,22 @@ if ($month == 1) {
     $nextYear = $year;
 }
 
+$monthEn=array(
+    1 => "Janurary",
+    2 => "February",
+    3 => "March",
+    4 => "April",
+    5 => "May",
+    6 => "June",
+    7 => "July",
+    8 => "August",
+    9 => "September",
+    10 => "October",
+    11 => "November",
+    12 => "December"
+
+);
+
 
 ?>
 
@@ -207,7 +224,7 @@ if ($month == 1) {
                         <a href="index.php?year=<?= $prevYear; ?>&month=<?= $prevMonth; ?>">
                         <i class="fa-solid fa-arrow-left"></i></a>
                     </span>
-                    <span class="header"><?= $year; ?> / <?= $month; ?></span>
+                    <span class="header"><?= $year; ?>  <?= $monthEn[$month]; ?></span>
                     <span>
                         <a href="index.php?year=<?= $nextYear; ?>&month=<?= $nextMonth; ?>"><i class="fa-solid fa-arrow-right"></i></a>
                     </span>
