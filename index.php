@@ -13,17 +13,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,500&family=Roboto+Slab&display=swap" rel="stylesheet">
 
-</head>
+
 <style>
     * {
         box-sizing: border-box;
         margin: 0 auto;
-        /* overflow: hidden; */
+        overflow: hidden;
     }
 
     body {
         width: 100vw;
-        height: 100vw;
+        height: 100vh;
         /* background-image: linear-gradient(to right, #f5df4d, #939597); */
         font-family: 'Roboto Mono', monospace;
         /* font-family: 'Roboto Slab', serif; */
@@ -31,13 +31,34 @@
 
     }
 
+    form{
+        margin:4rem auto 1rem;
+        width: 900px;
+        font-family: 'Roboto Mono', monospace;
+        
+
+    }
+    
+    form .btn{
+        border-radius: 20px;
+        /* border: 2px solid #91b54d; */
+        border: 2px solid #aaa;
+        font-family: 'Roboto Mono', monospace;
+        /* background: #91b54d;  */
+        background: #aaa; 
+        font-size: 16px;
+
+    }
+
+
     .container {
         background-color: rgba(244, 245, 240, .4);
         border-radius: 20px;
         display: flex;
-        margin: 80px auto;
+        margin: 1rem auto;
         width: 950px;
         height: 630px;
+        box-shadow: 4px 4px 12px -2px rgba(0, 0, 0, 0.5);
     }
 
     img {
@@ -77,7 +98,7 @@
 
     .calendar div:hover {
         font-size: 22px;
-        text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+        text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
     }
 
     .calendar div.week {
@@ -94,10 +115,7 @@
         font-weight: bold;
         color: #c8102e;
     }
-    .weekend:hover{
-        font-size: 22px;
-        text-shadow: 2px 2px 0px rgba(224,0,0,0.2);
-    }
+
 
     .workday {
         color: #333;
@@ -117,32 +135,35 @@
 
     .nav {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         width: 560px;
         height: 50px;
         padding-top: 8px;
     }
 
-    span>a {
+    .year>a {
         font-weight: bold;
         text-decoration: none;
         color: #333;
         font-size: 20px;
     }
 
-    span>a:hover {
+    .year>a:hover {
         font-size: 26px;
-        text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+        text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
     }
 
 
-    .header {
+    .header>a {
         font-size: 30px;
         font-weight: bold;
         color: #333;
+        text-decoration: none;
+
     }
 </style>
+</head>
 
 <?php
 
@@ -172,18 +193,18 @@ if ($month == 1) {
 }
 
 $monthEn = array(
-    1 => "Janurary",
-    2 => "February",
-    3 => "March",
-    4 => "April",
+    1 => "JAN",
+    2 => "FEB",
+    3 => "MAR",
+    4 => "APR",
     5 => "May",
-    6 => "June",
-    7 => "July",
-    8 => "August",
-    9 => "September",
-    10 => "October",
-    11 => "November",
-    12 => "December"
+    6 => "JUN",
+    7 => "JUL",
+    8 => "AUG",
+    9 => "SEP",
+    10 => "OCT",
+    11 => "NOV",
+    12 => "DEC"
 );
 
 
@@ -217,22 +238,26 @@ $monthEn = array(
     }
 
     ?>
-    <!-- <select name="month" id="">
-<option value="1">JAN</option>
-<option value="2">FEB</option>
-</select> -->
+        <form action="./index.php" method="get">
+            <input type="number" name="year" id="year" oninput="if(value.length>4)value=value.slice(0,4)" style="width:100px;" placeholder="Year: <?= $year; ?>">
+            <input type="number" name="month" id="month" oninput="if(value>12)value=12;if(value.length>2)value=value.slice(0,2)"  style="width:80px;" placeholder="Month: <?= $month; ?>">
+           <button class="btn"> GO <i class="fa-solid fa-plane"></i> </button> 
+        </form>
 
     <div class="container">
         <img src="./img/air<?= $month; ?>0<?= 1 ?>.jpg" alt="" width="350px" height="630px">
         <div class="aside">
             <div class="nav">
-                <span>
+                <span class="year">
                     <a href="index.php?year=<?= $prevYear; ?>&month=<?= $prevMonth; ?>">
                         <i class="fa-solid fa-arrow-left"></i></a>
                 </span>
-                <span class="header"><?= $year; ?> <?= $monthEn[$month]; ?></span>
-                <span>
-                    <a href="index.php?year=<?= $nextYear; ?>&month=<?= $nextMonth; ?>"><i class="fa-solid fa-arrow-right"></i></a>
+                <span class="header">
+                    <a href="index.php"><?= $year; ?> <?= $monthEn[$month]; ?>
+                </span>
+                <span class="year">
+                    <a href="index.php?year=<?= $nextYear; ?>&month=<?= $nextMonth; ?>">
+                        <i class="fa-solid fa-arrow-right"></i></a>
                 </span>
             </div>
 
