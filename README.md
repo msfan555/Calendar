@@ -2,8 +2,9 @@ Perpetual-calendar
 ===
 線上萬年曆
 ---
-以PHP程式撰寫一個萬年曆系統 
-提供連結可以切換不同的月份
   
-
- <img width="1440" alt="截圖 2022-05-31 下午7 20 58" src="https://user-images.githubusercontent.com/103909150/171163793-876d6c93-668f-4906-b1da-146b4e7600c7.png">
+### 以Array方式撰寫的萬年曆系統  
+### 可以點擊左右箭頭切換不同的月份，每個月的搭配的照片不同  
+### 萬年曆左上方加入搜尋欄，可以轉跳到其他年份和月份  
+  
+<img width="1184" alt="calendar" src="https://user-images.githubusercontent.com/103909150/171164987-178369ef-2a9d-4b1c-8ec0-fd324d7a4756.png">
