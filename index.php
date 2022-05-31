@@ -6,163 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>線上月曆</title>
-
+    
     <!-- <link rel="stylesheet" href="./css/style.css"> -->
     <script src="https://kit.fontawesome.com/f14dbee59e.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,500&family=Roboto+Slab&display=swap" rel="stylesheet">
-
-
-<style>
-    * {
-        box-sizing: border-box;
-        margin: 0 auto;
-        overflow: hidden;
-    }
-
-    body {
-        width: 100vw;
-        height: 100vh;
-        /* background-image: linear-gradient(to right, #f5df4d, #939597); */
-        font-family: 'Roboto Mono', monospace;
-        /* font-family: 'Roboto Slab', serif; */
-        background: linear-gradient(-70deg, #939597 40%, #f5df4d 30%);
-
-    }
-
-    form{
-        margin:4rem auto 1rem;
-        width: 900px;
-        font-family: 'Roboto Mono', monospace;
-        
-
-    }
-    
-    form .btn{
-        border-radius: 20px;
-        /* border: 2px solid #91b54d; */
-        border: 2px solid #aaa;
-        font-family: 'Roboto Mono', monospace;
-        /* background: #91b54d;  */
-        background: #aaa; 
-        font-size: 16px;
-
-    }
-
-
-    .container {
-        background-color: rgba(244, 245, 240, .4);
-        border-radius: 20px;
-        display: flex;
-        margin: 1rem auto;
-        width: 950px;
-        height: 630px;
-        box-shadow: 4px 4px 12px -2px rgba(0, 0, 0, 0.5);
-    }
-
-    img {
-        border-radius: 20px 0 0 20px;
-        margin-right: 5px;
-
-    }
-
-    .aside {
-        width: 560px;
-        margin: 0 30px 0 10px;
-    }
-
-    .calendar {
-        width: 560px;
-        height: 560px;
-        /* border:1px solid green; */
-        display: flex;
-        align-content: space-between;
-        flex-wrap: wrap;
-        /* margin: auto; */
-        margin-top: 0;
-        text-align: center;
-    }
-
-    .calendar div {
-        /* border: 1px solid #999; */
-        display: inline-block;
-        width: 80px;
-        height: 80px;
-        box-sizing: border-box;
-        /* margin-left: -1px; */
-        margin-top: -2px;
-        padding: 20px;
-        margin-top: 10px;
-    }
-
-    .calendar div:hover {
-        font-size: 22px;
-        text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
-    }
-
-    .calendar div.week {
-        border-bottom: 1px solid #333;
-        font-weight: 800;
-        color: #333;
-        height: 50px;
-        font-size: 16px;
-        padding: 15px 10px;
-        margin-bottom: -20px;
-    }
-
-    .weekend {
-        font-weight: bold;
-        color: #c8102e;
-    }
-
-
-    .workday {
-        color: #333;
-    }
-
-    .today {
-        background-color: rgba(244, 245, 240, .8);
-        border-radius: 50%;
-        color: #718B5A;
-        padding: 12px;
-    }
-
-    .wrapper {
-        width: 950px;
-        /* margin: 2rem auto; */
-    }
-
-    .nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 560px;
-        height: 50px;
-        padding-top: 8px;
-    }
-
-    .year>a {
-        font-weight: bold;
-        text-decoration: none;
-        color: #333;
-        font-size: 20px;
-    }
-
-    .year>a:hover {
-        font-size: 26px;
-        text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
-    }
-
-
-    .header>a {
-        font-size: 30px;
-        font-weight: bold;
-        color: #333;
-        text-decoration: none;
-
-    }
-</style>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <?php
@@ -239,8 +89,8 @@ $monthEn = array(
 
     ?>
         <form action="./index.php" method="get">
-            <input type="number" name="year" id="year" oninput="if(value.length>4)value=value.slice(0,4)" style="width:100px;" placeholder="Year: <?= $year; ?>">
-            <input type="number" name="month" id="month" oninput="if(value>12)value=12;if(value.length>2)value=value.slice(0,2)"  style="width:80px;" placeholder="Month: <?= $month; ?>">
+            <input class="input1" type="number" name="year" id="year" oninput="if(value.length>4)value=value.slice(0,4)" style="width:120px;" placeholder="Year: <?= $year; ?>">
+            <input class="input2" type="number" name="month" id="month" oninput="if(value>12)value=12;if(value.length>2)value=value.slice(0,2)"  style="width:100px;" placeholder="Month: <?= $month; ?>">
            <button class="btn"> GO <i class="fa-solid fa-plane"></i> </button> 
         </form>
 
@@ -248,15 +98,15 @@ $monthEn = array(
         <img src="./img/air<?= $month; ?>0<?= 1 ?>.jpg" alt="" width="350px" height="630px">
         <div class="aside">
             <div class="nav">
-                <span class="year">
-                    <a href="index.php?year=<?= $prevYear; ?>&month=<?= $prevMonth; ?>">
+                <span >
+                    <a class="year" href="index.php?year=<?= $prevYear; ?>&month=<?= $prevMonth; ?>">
                         <i class="fa-solid fa-arrow-left"></i></a>
                 </span>
-                <span class="header">
-                    <a href="index.php"><?= $year; ?> <?= $monthEn[$month]; ?>
+                <span>
+                    <a class="header" href="index.php"><?= $year; ?> <?= $monthEn[$month]; ?></a>
                 </span>
-                <span class="year">
-                    <a href="index.php?year=<?= $nextYear; ?>&month=<?= $nextMonth; ?>">
+                <span>
+                    <a class="year" href="index.php?year=<?= $nextYear; ?>&month=<?= $nextMonth; ?>">
                         <i class="fa-solid fa-arrow-right"></i></a>
                 </span>
             </div>
